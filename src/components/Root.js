@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import { useDispatch, useSelector } from 'react-redux';
+import Map from './Map';
+// import { useDispatch, useSelector } from 'react-redux';
 // import { setLoading } from '../redux/actions';
 
 function Root() {
@@ -9,8 +10,9 @@ function Root() {
 
 
     return (
-        <div>
+        <div className="container-fluid">
             <Header />
+            <Map />
         </div>
     )
 }
