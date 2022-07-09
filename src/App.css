@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Raleway&display=swap');
+
 .headerContainer {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -5,4 +7,11 @@
 
 .map-container {
   height: 400px;
+}
+
+.pageTitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 15px;
 }

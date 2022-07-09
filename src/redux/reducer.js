@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import { LOADING } from './actions';
+import { TRIP_INFO } from './actions';
 const dataState = {
-    loading: true
+    tripInfo: {}
 };
 
 const dataReducer = (state = dataState, action) => {
     switch (action.type) {
-        case LOADING:
-            state = Object.assign({}, state, { loading: action.loading });
+        case TRIP_INFO:
+            state = Object.assign({}, state, { tripInfo: action.tripInfo });
             return state;
         default:
             return state;

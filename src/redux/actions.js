@@ -1,8 +1,8 @@
-export const LOADING = 'LOADING';
+export const TRIP_INFO = 'TRIP_INFO';
 
-export function setLoading(loading) {
+export function setTripInfo(tripInfo) {
     return {
-        type: LOADING,
-        loading,
+        type: TRIP_INFO,
+        tripInfo,
     };
 }
