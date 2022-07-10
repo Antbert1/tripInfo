@@ -50,7 +50,11 @@ function TripInfo() {
         <div className="tripInfo container">
             <div className="lastUpdated">
                 <span className="refreshIcon">
-                    <FontAwesomeIcon icon={faRefresh} onClick={() => refreshInfo()} />
+                    {loading ?
+                        <div className="loader tinyLoader"></div>
+                        :
+                        <FontAwesomeIcon icon={faRefresh} onClick={() => refreshInfo()} />
+                    }
                 </span>
                 Last Updated: {dateString.toString()}
             </div>

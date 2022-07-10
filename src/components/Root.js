@@ -47,7 +47,12 @@ function Root() {
                     <TripInfo />
                 </div>
                 :
-                <div>Loading</div>
+                <div>
+                    <div className="loadingSpinner">
+                        <div className="loader"></div>
+                    </div>
+                    <div className="loadingSpinner">Loading</div>
+                </div>
             }
         </div>
     )
