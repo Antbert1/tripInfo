@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTripInfo } from '../redux/actions';
+import { setTripInfo, setError } from '../redux/actions';
 import Header from './Header';
-import Map from './Map';
+import MapDisplay from './MapDisplay';
+import TripInfo from './TripInfo';
 import { getTripInfo } from '../util';
 const preUrl = 'https://api.ember.to/';
 
 function Root() {
     const dispatch = useDispatch();
     const tripInfo = useSelector((state => state.dataReducer.tripInfo));
-
-    const [error, setError] = useState("sadfsdf");
+    const error = useSelector((state => state.dataReducer.error));
 
     useEffect(() => {
         getTripInfo(preUrl, "hybD6XS9GbdvFuH5PyXdmv").then(function (result) {
             if (result !== "Error") {
                 dispatch(setTripInfo(result));
             } else {
-                setError("There was a problem retrieving your data. Please try again.")
+                dispatch(setError("There was a problem retrieving your data. Please try again."));
             }
             console.log(result);
         });
@@ -27,18 +27,25 @@ function Root() {
     return (
         <div className="container-fluid">
             <Header />
-            <div className="container">
-                <div className="row">
-                    <div className="pageTitle">
-                        Your Trip
-                    </div>
-                    {error !== "" &&
-                        <div className="errorMsg">{error}</div>
-                    }
-                </div>
-            </div>
             {Object.keys(tripInfo).length > 0 ?
-                <Map />
+                <div className="pageContent">
+                    <MapDisplay />
+                    <div className="container">
+                        <div className="row">
+                            <div className="pageTitle">
+                                Your Trip Information
+                            </div>
+                            {error !== "" &&
+                                <div className="notesOuter">
+                                    <div className="notes">
+                                        {error}
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <TripInfo />
+                </div>
                 :
                 <div>Loading</div>
             }

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Raleway&display=swap');
 
+body {
+  font-size: 15px;
+}
+
 .headerContainer {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -14,4 +18,47 @@
   font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.lastUpdated {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.notesOuter {
+  display: flex;
+  justify-content: center;
+}
+
+.notes {
+  text-align: center;
+  background-color: #FFB2B2;
+  border: 2px solid #FE6565;
+  padding: 20px;
+}
+
+.infoBox {
+  padding: 20px;
+  display: flex;
+}
+
+.infoIconBox {
+  margin-right: 15px;
+}
+
+.infoTitle {
+  font-weight: 700;
+}
+
+.infoIcon {
+  color: rgb(9, 143, 130);
+  font-size: 25px;
+}
+
+.refreshIcon {
+  margin-right: 5px;
+  cursor: pointer;
 }
