@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+// import mapboxgl from '!mapbox-gl'; 
 import Map, { Marker } from "react-map-gl";
 import pin from '../assets/pin.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW1pZGRsZXRvbjEiLCJhIjoiY2w1ZTJ1ejdnMHhiOTNjbnY2cWJiOWZ4NCJ9.PDNBhOJD0OD4eFFbFcBpew';
+// mapboxgl.accessToken = 'pk.eyJ1IjoiYW1pZGRsZXRvbjEiLCJhIjoiY2w1ZTJ1ejdnMHhiOTNjbnY2cWJiOWZ4NCJ9.PDNBhOJD0OD4eFFbFcBpew';
 
 function MapDisplay() {
+
+    //This should be hidden in reality
+    const token = 'pk.eyJ1IjoiYW1pZGRsZXRvbjEiLCJhIjoiY2w1ZTJ1ejdnMHhiOTNjbnY2cWJiOWZ4NCJ9.PDNBhOJD0OD4eFFbFcBpew';
+
     const tripInfo = useSelector((state => state.dataReducer.tripInfo));
     const midPoint = tripInfo.route[Math.round(tripInfo.route.length / 2)];
     const midLat = midPoint.location.lat;
@@ -97,7 +101,7 @@ function MapDisplay() {
                     zoom: 7,
                 }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
-                mapboxAccessToken={mapboxgl.accessToken}
+                mapboxAccessToken={token}
                 style={{ width: "98vw", height: "500px" }}
             >
                 {tripInfo.route.map((item, index) => showMarker(item, index))}

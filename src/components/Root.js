@@ -19,7 +19,6 @@ function Root() {
             } else {
                 dispatch(setError("There was a problem retrieving your data. Please try again."));
             }
-            console.log(result);
         });
     }, []);
 

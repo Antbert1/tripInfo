@@ -15,7 +15,10 @@ function TripInfo() {
 
     //Information to show
     const notes = tripInfo.description.notes;
-    const updatedAt = tripInfo.description.notes_details.updated_at.toString();
+    let updatedAt;
+    if (notes !== undefined) {
+        updatedAt = tripInfo.description.notes_details.updated_at.toString();
+    }
     const dateString = new Date(updatedAt);
     const routeNum = tripInfo.description.route_number;
     let bikes;
@@ -48,20 +51,22 @@ function TripInfo() {
 
     return (
         <div className="tripInfo container">
-            <div className="lastUpdated">
-                <span className="refreshIcon">
-                    {loading ?
-                        <div className="loader tinyLoader"></div>
-                        :
-                        <FontAwesomeIcon icon={faRefresh} onClick={() => refreshInfo()} />
-                    }
-                </span>
-                Last Updated: {dateString.toString()}
-            </div>
             {notes !== undefined &&
-                <div className="notesOuter">
-                    <div className="notes">
-                        {notes}
+                <div>
+                    <div className="lastUpdated">
+                        <span className="refreshIcon">
+                            {loading ?
+                                <div className="loader tinyLoader"></div>
+                                :
+                                <FontAwesomeIcon icon={faRefresh} onClick={() => refreshInfo()} />
+                            }
+                        </span>
+                        Last Updated: {dateString.toString()}
+                    </div>
+                    <div className="notesOuter">
+                        <div className="notes">
+                            {notes}
+                        </div>
                     </div>
                 </div>
             }
